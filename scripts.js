@@ -94,7 +94,7 @@ const animeData = [
     year: 2019,
     score: 8.95,
     synopsis: "Shigeo 'Mob' Kageyama continues suppressing his overwhelming psychic powers while striving to grow as a person and protect the people who matter to him.",
-    image: "https://cdn.myanimelist.net/images/anime/1172/93398.jpg"
+    image: "https://myanimelist.net/anime/37510/Mob_Psycho_100_II/pics"
   },
   {
     title: "Bleach: Thousand-Year Blood War",
