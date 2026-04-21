@@ -1,80 +1,57 @@
 # Anime Catalog
 
-A polished anime catalog website showcasing 178 real anime titles from MyAnimeList, built for the Snap Engineering Academy 2026 Stage 2 assessment.
+A web app that lets you browse, search, and filter 178 anime titles pulled from MyAnimeList. Built as part of the Snap Engineering Academy 2026 Stage 2 assessment.
 
-## Features
+## What It Does
 
-- **Live Search** — Filter anime by title as you type
-- **Genre Filter** — Browse anime by category (Action, Drama, Fantasy, etc.)
-- **Sort** — Order by highest rated, newest, most episodes, or alphabetically
-- **Real Data** — All anime information sourced from MyAnimeList via Jikan API
-- **Responsive Design** — Works seamlessly on desktop, tablet, and mobile
+- **Search** — Type any title and results filter in real time
+- **Genre Filter** — Click a genre to narrow down the list
+- **Sort** — Sort by rating, year, episode count, or title
+- **178 Real Titles** — All data pulled from MyAnimeList via the Jikan API
 
-## Project Structure
+## File Structure
 
 ```
 .
-├── index.html      # Page structure and hidden card template
-├── style.css       # Styling, dark header, card grid, responsive layout
-├── scripts.js      # 178 anime entries + search/filter/sort logic
-└── README.md       # This file
+├── index.html      # Main page layout and card template
+├── style.css       # All the styling
+├── scripts.js      # Anime data + search/filter/sort logic
+└── README.md       # You're here
 ```
 
-## Data Sources
-
-- **MyAnimeList** (myanimelist.net) — Anime scores, studios, genres, episode counts, synopses
-- **Jikan REST API** (jikan.moe) — Free public API for MyAnimeList data
-- **Cover Images** — cdn.myanimelist.net CDN
-
-All 178 entries are real, verified data from MyAnimeList.
-
-## How It Works
-
-### JavaScript Features (3 Data Operations)
-
-1. **Search** — Uses `Array.filter()` with case-insensitive title matching
-2. **Genre Filter** — Uses `Array.filter()` with `Array.includes()` to match genres
-3. **Sort** — Uses `Array.sort()` with comparators for score, year, episodes, or title
-
-All three filters chain together through the `applyFilters()` function, allowing simultaneous filtering and sorting.
-
-### Card Design
-
-- Cover art image (2:3 aspect ratio)
-- Score badge (color-coded: gold ≥9.0, green ≥8.7, blue below)
-- Title, genres, studio, year, episode count
-- Truncated synopsis
-- Hover effect with lift animation
-
-## Local Development
+## How to Run It Locally
 
 ```bash
 # Start a local server
 python3 -m http.server 5500
-
-# Open in browser
-# http://localhost:5500
 ```
 
-Or use the `.claude/launch.json` configuration with Claude Code preview.
+Then open `http://localhost:5500` in your browser. That's it.
 
-## Responsive Grid
+## How the Filtering Works
 
-Built with CSS Grid (`repeat(auto-fill, minmax(260px, 1fr))`), automatically reflows for all screen sizes.
+All three filters (search, genre, sort) run through a single `applyFilters()` function so they all work together at the same time.
+
+1. **Search** — `Array.filter()` with `.toLowerCase()` for case-insensitive matching
+2. **Genre Filter** — `Array.filter()` + `Array.includes()` to check genre arrays
+3. **Sort** — `Array.sort()` with custom comparators depending on what's selected
+
+## Data
+
+Everything comes from the [Jikan REST API](https://jikan.moe/), which is a free wrapper around MyAnimeList. Cover images are served from the MyAnimeList CDN.
 
 ## Score Badge Colors
 
-- **Gold** (`#f5c518`) — Score ≥ 9.0
-- **Green** (`#4ade80`) — Score ≥ 8.7
-- **Blue** (`#60a5fa`) — Score < 8.7
+| Color | Score Range |
+|-------|-------------|
+| Gold | ≥ 9.0 |
+| Green | ≥ 8.7 |
+| Blue | < 8.7 |
 
-## Technical Stack
+## Tech Stack
 
-- **HTML5** — Semantic markup
-- **CSS3** — Flexbox, CSS Grid, responsive design
-- **Vanilla JavaScript** — No frameworks or libraries
-- **Real Data** — Jikan API, MyAnimeList
+Plain HTML, CSS, and vanilla JavaScript — no frameworks, no build tools, no dependencies.
 
 ## Browser Support
 
-Works in all modern browsers (Chrome, Firefox, Safari, Edge).
+Works in Chrome, Firefox, Safari, and Edge.
