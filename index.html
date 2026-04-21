@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Catalog | Top Rated Series</title>
+    <meta name="description" content="A catalog of the highest-rated anime series, sourced from MyAnimeList." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <header class="main-header">
+      <div class="header-inner">
+        <h1 class="site-title">Anime Catalog</h1>
+        <p class="site-subtitle">Top-rated series · Data from MyAnimeList</p>
+      </div>
+    </header>
+
+    <!-- ── Controls ───────────────────────────────────────────── -->
+    <section class="controls">
+      <div class="controls-inner">
+        <div class="control-group">
+          <label for="search-input">Search</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by title…"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="control-group">
+          <label for="genre-filter">Genre</label>
+          <select id="genre-filter">
+            <option value="All">All Genres</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sort-by">Sort by</label>
+          <select id="sort-by">
+            <option value="score">Highest Rated</option>
+            <option value="year">Newest First</option>
+            <option value="episodes">Most Episodes</option>
+            <option value="title">A → Z</option>
+          </select>
+        </div>
+
+        <span id="result-count" class="result-count"></span>
+      </div>
+    </section>
+
+    <!-- ── Card Grid ──────────────────────────────────────────── -->
+    <main id="card-container" class="card-container"></main>
+
+    <!-- ── Hidden Template Card (cloned by JS) ────────────────── -->
+    <div class="card" style="display: none">
+      <div class="card-image-wrapper">
+        <img class="card-img" src="" alt="" />
+        <span class="card-score"></span>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title"></h2>
+        <div class="card-genres"></div>
+        <div class="card-meta">
+          <span class="card-studio"></span>
+          <span class="meta-sep">·</span>
+          <span class="card-year"></span>
+          <span class="meta-sep">·</span>
+          <span class="card-episodes"></span>
+        </div>
+        <p class="card-synopsis"></p>
+      </div>
+    </div>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <p>Data sourced from <a href="https://myanimelist.net" target="_blank" rel="noopener">MyAnimeList</a> via the <a href="https://jikan.moe" target="_blank" rel="noopener">Jikan API</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

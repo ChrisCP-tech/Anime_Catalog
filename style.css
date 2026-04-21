@@ -1,0 +1,310 @@
+/* ── Reset & Base ───────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #f2f4f7;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+.main-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.site-title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.site-subtitle {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── Controls Bar ────────────────────────────────────────────────────────── */
+
+.controls {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e6ed;
+  padding: 18px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.controls-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.control-group label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+
+.control-group input[type="text"],
+.control-group select {
+  height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  background: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+#search-input {
+  width: 240px;
+}
+
+.control-group input[type="text"]:focus,
+.control-group select:focus {
+  border-color: #0f3460;
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.12);
+  background: #fff;
+}
+
+.result-count {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  padding-bottom: 10px;
+  white-space: nowrap;
+}
+
+/* ── Card Grid ───────────────────────────────────────────────────────────── */
+
+.card-container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+
+/* ── Card Image ──────────────────────────────────────────────────────────── */
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.04);
+}
+
+/* ── Score Badge ─────────────────────────────────────────────────────────── */
+
+.card-score {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1a1a2e;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.score-gold {
+  background: #f5c518;
+}
+
+.score-green {
+  background: #4ade80;
+}
+
+.score-blue {
+  background: #60a5fa;
+}
+
+/* ── Card Body ───────────────────────────────────────────────────────────── */
+
+.card-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1a1a2e;
+}
+
+/* ── Genre Tags ──────────────────────────────────────────────────────────── */
+
+.card-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.genre-tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #3730a3;
+  letter-spacing: 0.02em;
+}
+
+/* ── Card Meta (studio · year · episodes) ────────────────────────────────── */
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.meta-sep {
+  color: #d1d5db;
+}
+
+/* ── Synopsis ────────────────────────────────────────────────────────────── */
+
+.card-synopsis {
+  font-size: 0.82rem;
+  color: #6b7280;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── No Results Message ──────────────────────────────────────────────────── */
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1rem;
+  color: #9ca3af;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  text-align: center;
+  padding: 28px 24px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 16px;
+}
+
+.site-footer a {
+  color: #0f3460;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .controls-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #search-input {
+    width: 100%;
+  }
+
+  .result-count {
+    margin-left: 0;
+    padding-bottom: 0;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 0 16px;
+    margin: 20px auto;
+  }
+}
